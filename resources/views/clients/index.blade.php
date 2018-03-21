@@ -6,9 +6,11 @@
 				<br>
 				<br>
 				<br>
-					<a href="" class="btn btn-success">Agregar Cliente</a>
+					<a href="{{ URL::route('clients.create') }}" class="btn btn-success">Agregar Cliente</a>
 					<br>
 					<br>
+						
+					@endif
 					<table class="table table-hover" id="buscar_resultados">
 						<thead>
 							<tr>
