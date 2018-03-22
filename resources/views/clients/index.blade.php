@@ -24,6 +24,7 @@
 								<th>Email</th>
 								<th>Telefono</th>
 								<th>Fecha Creado</th>
+								<th>Acciones</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -35,6 +36,15 @@
 									<td>{{ $client->email }}</td>
 									<td>{{ $client->telephone }}</td>
 									<td>{{ $client->created_at }}</td>
+									<td>
+										<a class="btn btn-info" href="{{ route('clients.edit', $client) }}">Editar</a>
+										<br>
+										<br>
+										<form id="delete-form" action="{{ route('clients.destroy', $client->id) }}" method="POST">{{ csrf_field() }}
+											<input name="_method" type="hidden" value="DELETE">	
+											<button onClick="return confirm('Eliminar registro?')" class="btn btn-danger">Eliminar</button>
+										</form>
+									</td>
 								</tr>
 							@endforeach
 						</tbody>
