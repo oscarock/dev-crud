@@ -11,4 +11,5 @@
 |
 */
 
+Route::get('/', 'ClientsController@index');
 Route::resource('clients', 'ClientsController');
