@@ -17,6 +17,14 @@ class ClientsController extends Controller
   }
 
   public function store(Request $request){
+
+  	$request->validate([
+    	'first_name' => 'required',
+    	'last_name' => 'required',
+    	'email' => 'required|unique:clients|email',
+    	'telephone' => 'required'
+		]);	
+
 		$client = new Client;
 		$client->first_name = $request->first_name;
 		$client->last_name = $request->last_name;
@@ -24,6 +32,8 @@ class ClientsController extends Controller
 		$client->telephone = $request->telephone;
 		$client->save();
 
-		//return redirect('index');
-  }
+		$message = 'Cliente agregado correctamente.';
+
+		return redirect()->route('clients.index')->with('message', $message);
+	}
 }

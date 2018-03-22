@@ -9,8 +9,12 @@
 					<a href="{{ URL::route('clients.create') }}" class="btn btn-success">Agregar Cliente</a>
 					<br>
 					<br>
-						
-					@endif
+					@if(\Session::has('message'))
+						<div class="alert alert-dismissible alert-success">
+				  		<button type="button" class="close" data-dismiss="alert">&times;</button>
+				  		<h3>{{ \Session::get('message') }}</h3>
+						</div>
+					@endif	
 					<table class="table table-hover" id="buscar_resultados">
 						<thead>
 							<tr>
